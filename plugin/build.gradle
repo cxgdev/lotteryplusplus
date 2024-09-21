@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.cxgdev'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        url 'https://oss.sonatype.org/content/groups/public/'
+    }
+    maven {
+        url 'https://repo.codemc.io/repository/maven-public/'
+    }
+    maven {
+        url 'https://repo1.maven.org/maven2/'
+    }
+}
+
+// https://repo1.maven.org/maven2/com/ghostchu/simplereloadlib/1.1.2/
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT'
+    compileOnly 'com.ghostchu:quickshop-hikari:6.2.0.6'
+    compileOnly 'com.ghostchu:quickshop-hikari-api:3.6.1.5'
+    compileOnly 'com.ghostchu:quickshop-common:6.2.0.6'
+    compileOnly 'com.ghostchu:quickshop-bukkit:6.2.0.6'
+    //compileOnly 'com.ghostchu.simplereloadlib:1.1.2'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    archiveBaseName.set('LotteryPlusPlus')
+    archiveVersion.set('1.0-SNAPSHOT')
+    // Puts the jar inside of the built jar
+    archiveClassifier.set('shaded')
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA'
+}

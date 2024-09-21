@@ -44,15 +44,12 @@ export async function GET({ params }) {
 	/** References LuckPerms information */
 	const luckPerms = planData.extensions[1].extensionData[1];
 
-	// Convert the JSON data that PLAN gives to the MiniMessage format
 	const prefixMM = convertToMiniMessage(JSON.parse(luckPerms.tabs[0].values[0].value));
 	const suffixMM = convertToMiniMessage(JSON.parse(luckPerms.tabs[0].values[1].value));
 
-	// Deserialize the MiniMessage-formatted data
 	const prefixComponent = MiniMessage.miniMessage().deserialize(prefixMM);
 	const suffixComponent = MiniMessage.miniMessage().deserialize(suffixMM);
 
-	// Converts the data to HTML for use in the web interface
 	const prefix = MiniMessage.miniMessage().toHTML(prefixComponent);
 	const suffix = MiniMessage.miniMessage().toHTML(suffixComponent);
 
