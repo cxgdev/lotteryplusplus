@@ -1,0 +1,6 @@
+@import url("/fonts/Satoshi/css/satoshi.css");
+
+@font-face {
+    font-family: "Retro Computer";
+    src: url("/fonts/RetroComputer.ttf"), format("truetype");
+}
