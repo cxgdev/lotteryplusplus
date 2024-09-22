@@ -221,5 +221,12 @@ export namespace PlanResponses {
 				wide: boolean;
 			}[];
 		}[];
+
+		info: {
+			name: string;
+			uuid: string;
+			operator: boolean;
+			online: boolean;
+		}
 	};
 }

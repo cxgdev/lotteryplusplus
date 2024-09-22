@@ -58,7 +58,7 @@
 		padding: 64px;
 		box-sizing: border-box;
 		width: 100%;
-		overflow: auto;
+		height: calc(100vh - 90px);
         transform: padding 150ms ease;
 	}
 
