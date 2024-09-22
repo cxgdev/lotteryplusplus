@@ -77,6 +77,7 @@ public final class LotteryPlusPlus extends JavaPlugin {
         @Override
         public void handle(HttpExchange t) throws IOException {
             // response needs to be JSON array of recent purchases
+
             String response = "This is the response";
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();

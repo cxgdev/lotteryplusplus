@@ -10,7 +10,7 @@
 	<div>
         <span class="position">#{position}</span>
         <div class="divider" />
-		<img src={`https://minotar.net/helm/${player}/32.png`} />
+		<img src={`https://mc-heads.net/avatar/${name}/100`} />
 		{@html prefix}
 		<span>{player} </span>
 		{@html suffix}
