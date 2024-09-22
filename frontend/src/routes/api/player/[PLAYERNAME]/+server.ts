@@ -37,29 +37,23 @@ export async function GET({ params }) {
 			}
 		});
 
+	console.log(planData);
+
 	// CONVERT THE PLAYER PREFIX AND SUFFIX TO HTML
 
 	console.log(`Converting prefixes and suffixes...`);
-
-	/** References LuckPerms information */
-	const luckPerms = planData.extensions[1].extensionData[1];
-
-	const prefixMM = convertToMiniMessage(JSON.parse(luckPerms.tabs[0].values[0].value));
-	const suffixMM = convertToMiniMessage(JSON.parse(luckPerms.tabs[0].values[1].value));
-
-	const prefixComponent = MiniMessage.miniMessage().deserialize(prefixMM);
-	const suffixComponent = MiniMessage.miniMessage().deserialize(suffixMM);
-
-	const prefix = MiniMessage.miniMessage().toHTML(prefixComponent);
-	const suffix = MiniMessage.miniMessage().toHTML(suffixComponent);
-
-	console.log(`Prefix: ${prefix}`);
-	console.log(`Suffix: ${suffix}`);
 
 	// FETCH PLAYER DATA FROM SERVER API (For purchase history)
 
 	// COMBINE THE TWO
 
 	// RETURN THE RESPONSE
-	return json('');
+	return json({
+		name: planData.info.name,
+		uuid: planData.info.uuid,
+		online: planData.info.online,
+		operator: planData.info.operator,
+		prefix,
+		suffix
+	});
 }
