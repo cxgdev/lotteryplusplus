@@ -22,6 +22,8 @@
         overflow: hidden;
         padding: 12px;
         box-sizing: border-box;
+        position: fixed;
+        z-index: 2;
     }
 
     .logo-wrapper {

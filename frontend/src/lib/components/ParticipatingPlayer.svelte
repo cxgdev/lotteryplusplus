@@ -50,5 +50,6 @@
     .position {
         color: gray;
         margin-right: 8px;
+        width: 20px;
     }
 </style>

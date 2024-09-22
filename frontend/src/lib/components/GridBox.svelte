@@ -5,12 +5,20 @@
 <div class="box">
     <h1>{title}</h1>
     <hr />
-    <slot></slot>
+    <div class="content">
+        <slot></slot>
+    </div>
 </div>
 
 <style>
     .box {
         padding: 24px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
     }
 
     h1 {

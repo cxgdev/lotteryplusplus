@@ -34,6 +34,7 @@
 
 	.wrapper {
 		height: 100%;
+        overflow: auto;
 	}
 
 	.wrapper > div > img {
@@ -53,6 +54,7 @@
 	}
 
 	.content {
+        margin-top: 90px;
 		padding: 64px;
 		box-sizing: border-box;
 		width: 100%;
