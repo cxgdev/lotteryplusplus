@@ -26,7 +26,7 @@ export default async function convertPrefixSuffix(response: PlanResponses.Player
 	};
 }
 
-type MiniMessageJson = {
+type MiniMessageJSON = {
 	text?: string;
 	color?: string;
 	bold?: boolean;
@@ -34,10 +34,10 @@ type MiniMessageJson = {
 	underlined?: boolean;
 	strikethrough?: boolean;
 	obfuscated?: boolean;
-	extra?: MiniMessageJson[];
+	extra?: MiniMessageJSON[];
 };
 
-function convertToMiniMessage(json: MiniMessageJson): string {
+function convertToMiniMessage(json: MiniMessageJSON): string {
 
 	console.log(`Converting JSON-formatted string to MiniMessage`);
 
