@@ -18,6 +18,11 @@ repositories {
     maven {
         url 'https://repo1.maven.org/maven2/'
     }
+    mavenCentral()
+
+    maven {
+        url 'https://repo.maven.apache.org/maven2/'
+    }
 }
 
 // https://repo1.maven.org/maven2/com/ghostchu/simplereloadlib/1.1.2/
@@ -28,11 +33,19 @@ dependencies {
     compileOnly 'com.ghostchu:quickshop-hikari-api:3.6.1.5'
     compileOnly 'com.ghostchu:quickshop-common:6.2.0.6'
     compileOnly 'com.ghostchu:quickshop-bukkit:6.2.0.6'
+    implementation 'net.kyori:adventure-nbt:4.17.0'
+    implementation 'net.kyori:adventure-api:4.17.0'
+    implementation 'net.kyori:adventure-text-minimessage:4.17.0'
+    implementation 'net.kyori:adventure-platform-bukkit:4.3.0'
     //compileOnly 'com.ghostchu.simplereloadlib:1.1.2'
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+tasks.withType(Jar) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 jar {

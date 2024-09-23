@@ -3,3 +3,7 @@ version: '1.0-SNAPSHOT'
 main: com.cxgdev.lotteryPlusPlus.LotteryPlusPlus
 api-version: '1.21'
 authors: [ CXG ]
+commands:
+  lpp:
+    description: 'Gives information about the active Lottery++ lottery'
+    usage: '/<command>'

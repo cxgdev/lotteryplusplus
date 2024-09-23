@@ -1,1 +1,12 @@
 port: 22693
+messages:
+  prefix: "<gray>[</gray><color:#19afff>L++</color><gray>]</gray>"
+  # Sends to the player when their ticket is received
+  ticketRecieved: "<color:#bae3ff>Your ticket has been recieved!</color>"
+  # Sends to the player when their registration is received
+  registrationRecieved: "<color:#bae3ff>You are now registered to participate in Lottery++ lotteries!</color>"
+  # Sends to everyone BUT the person who won
+  winnerAnnouncement: "<color:#19afff>{name} has won the Lottery++ for the week! They have recieved {prize} Spoons!</color>"
+  # Sends to the person that won (if they're online)
+  youHaveWon: "<color:#19afff>You have won the Lottery++ for the week! Your prize is {prize} Spoons!</color>"
+  lotteryEndingSoon: "<color:#bae3ff>The active lottery is ending soon!</color>"
