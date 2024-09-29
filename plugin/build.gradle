@@ -1,60 +1,43 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'com.cxgdev'
 version = '1.0-SNAPSHOT'
 
 repositories {
-    maven {
-        url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
-    }
-    maven {
-        url 'https://oss.sonatype.org/content/groups/public/'
-    }
-    maven {
-        url 'https://repo.codemc.io/repository/maven-public/'
-    }
-    maven {
-        url 'https://repo1.maven.org/maven2/'
-    }
     mavenCentral()
-
-    maven {
-        url 'https://repo.maven.apache.org/maven2/'
-    }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://oss.sonatype.org/content/groups/public/' }
+    maven { url 'https://repo.codemc.io/repository/maven-public/' }
 }
-
-// https://repo1.maven.org/maven2/com/ghostchu/simplereloadlib/1.1.2/
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT'
-    compileOnly 'com.ghostchu:quickshop-hikari:6.2.0.6'
-    compileOnly 'com.ghostchu:quickshop-hikari-api:3.6.1.5'
-    compileOnly 'com.ghostchu:quickshop-common:6.2.0.6'
-    compileOnly 'com.ghostchu:quickshop-bukkit:6.2.0.6'
+    implementation 'com.ghostchu:quickshop-hikari:6.2.0.6'
+    implementation 'com.ghostchu:quickshop-hikari-api:3.6.1.5'
+    implementation 'com.ghostchu:quickshop-common:6.2.0.6'
+    implementation 'com.ghostchu:quickshop-bukkit:6.2.0.6'
     implementation 'net.kyori:adventure-nbt:4.17.0'
     implementation 'net.kyori:adventure-api:4.17.0'
     implementation 'net.kyori:adventure-text-minimessage:4.17.0'
     implementation 'net.kyori:adventure-platform-bukkit:4.3.0'
+    implementation 'org.xerial:sqlite-jdbc:3.46.1.0'
     //compileOnly 'com.ghostchu.simplereloadlib:1.1.2'
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17) // Ensure Java 17 is set
+    }
 }
 
-tasks.withType(Jar) {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-}
-
-jar {
+shadowJar {
     archiveBaseName.set('LotteryPlusPlus')
     archiveVersion.set('1.0-SNAPSHOT')
-    // Puts the jar inside of the built jar
     archiveClassifier.set('shaded')
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA'
+
+    relocate 'com.ghostchu.quickshop', 'com.cxgdev.relocated.quickshop'
+    relocate 'net.kyori.adventure', 'com.cxgdev.relocated.adventure'
 }

@@ -1,33 +1,57 @@
 # What port should the API listen on?
 port: 22693
 
+# Password that all API calls must use to be accepted
+privateKey: 'WOJZjgGLHUMkPIc3ngGJr9zsICHPzCbx'
+
+# Shop IDs used for purchase verification
+shops:
+  # IDs of registration shops
+  registration:
+    - 0
+  # IDs of ticket shops
+  tickets:
+    - 0
+
 messages:
   # What gets prefixed to all messages
-  prefix: "<gray>[</gray><color:#19afff>L++</color><gray>]</gray>"
-  
+  prefix: '<gray>[</gray><color:#19afff>L++</color><gray>]</gray>'
+
+  info:
+    - '<gray><st>               </st></gray> <color:#19afff>ʟᴏᴛᴛᴇʀʏ++</color> <gray><st>               </st></gray>'
+    - ''
+    - '<gray>In order to be apart of the Lottery++ lotteries, you need to complete your registration and pay the fee.</gray>'
+    - ''
+    - '<gray>You can do this at the Lottery++ location in spawn.</gray>'
+    - ''
+    - '<gray>After that, you will recieve a confirmation message and will be able to purchase tickets for use in the lotteries.</gray>'
+    - ''
+    - '<color:#19afff>Happy gambling!</color> <dark_gray>- CXG_ and xmfm</dark_gray>'
+
+
   # Sends to the player when their ticket is received
   # Variables:
   # {tickets}: Number of tickets the current player has
-  ticketRecieved: "<color:#bae3ff>Your ticket has been recieved! You now have {tickets} ticket(s)</color>"
+  ticketRecieved: '<color:#bae3ff>Your ticket has been recieved! You now have {tickets} ticket(s)</color>'
   
   # Sends to the player when their registration is received
-  registrationRecieved: "<color:#bae3ff>You are now registered to participate in <color:#19afff>Lottery++</color> lotteries!</color>"
+  registrationRecieved: '<color:#bae3ff>You are now registered to participate in <color:#19afff>Lottery++</color> lotteries!</color>'
 
   # Sends to players who buy tickets but have not purchased the registration
-  noRegistrationError: "<color:#e81313>Warning! You have not completed your registration to participate in Lottery++ lotteries!</color>"
+  noRegistrationError: '<color:#e81313>Warning! You have not completed your registration to participate in Lottery++ lotteries!</color>'
 
   # Announces to the server when the active lottery is about to be drawn
-  lotteryEndingSoon: "<color:#bae3ff>The active lottery is ending soon!</color>"
+  lotteryEndingSoon: '<color:#bae3ff>The active lottery is ending soon!</color>'
 
   # Variables:
   # {name}: Name of the player who won the lottery
   # {prize}: Prize the winner has won
   # Sends to everyone BUT the person who won
-  winnerAnnouncement: "<color:#19afff>{name} has won the Lottery++ for the week! They have recieved {prize} Spoons!</color>"
+  winnerAnnouncement: '<color:#19afff>{name} has won the Lottery++ for the week! They have recieved {prize} Spoons!</color>'
   
   # Sends to the person that won (if they're online)
-  winnerMessage: "<color:#19afff>You have won the Lottery++ for the week! Your prize is {prize} Spoons!</color>"
+  winnerMessage: '<color:#19afff>You have won the Lottery++ for the week! Your prize is {prize} Spoons!</color>'
 
   # Periodically gets sent out to the server notifying players of the lottery
-  prizePoolAnnouncement: "<color:#bae3ff>There is a Lottery++ lottery active! The current prize pool is <color:#19afff>{prize} Spoons</color>! Type /lpp in chat to see how to join!</color>"
+  prizePoolAnnouncement: '<color:#bae3ff>There is a Lottery++ lottery active! The current prize pool is <color:#19afff>{prize} Spoons</color>! Type /lpp in chat to see how to join!</color>'
   
